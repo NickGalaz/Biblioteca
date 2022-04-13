@@ -1,0 +1,16 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang2058{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\b\f0\fs22\lang10 ENTIDAD COMUNA\par
+\b0 La entidad comuna y su valor asociado la separ\'e9 del atributo direccion de socio con tal de llegar al principio de atomicidad. Debido a que la tabla ya era una entidad fuerte y era indivisible qued\'f3 de esta forma, cumpliendose la 1FN.\par
+\b ENTIDAD SOCIO\par
+\b0 La Entidad Socio se recurri\'f3 a la 2FN se retir\'f3 del atributo direcci\'f3n la COMUNA debido a que esta depend\'eda de la entidad Comuna, y tambien por el hecho de que 1 direcci\'f3n estaba asociada a UN SOLO socio. Poseia valores \'fanicos que dependen directamente de su clave por lo que tambi\'e9n cumpl\'eda con el principio de atomicidad.\par
+\b ENTIDAD AUTOR\par
+\b0 La Entidad Autor se cre\'f3 debido a que en los registros los atributos de autor no dependian del libro. Es por ello que se creo esta nueva tabla con sus atributos  directamente asociados y apartando el atributo repetible que seria tipo_autor trav\'e9s de la 2FN.\par
+\b ENTIDAD LIBRO\par
+\b0 La Entidad libro qued\'f3 filtrada con s\'f3lo los valores asociados fuertemente a su key (titulo, pagina, dias de prestamo), los dem\'e1s valores estaban asociados a autor, por lo que se retiraron para crear una nueva tabla. La entidad libro es una entidad fuerte por lo que no depend\'eda de otra entidad, cumpliendo con la 2FN se eliminaron los atributos asociados parcialmente a la entidad y su clave.\par
+\b ENTIDAD INFO_AUTOR\par
+\b0 La entidad info_autor fue creada para poder relacionar la entidad Autor con la entidad Libro. La tabla info_autor posee Keys compuestas (cod_autor de Autor y isbn de Libro) y el atributo repetible de tipo_autor, para poder hacer la asociaci\'f3n entre las entidades autor,  info_autor y libro, conformando una tabla de transici\'f3n que relaciona las 2 entidades. Se realiz\'f3 3FN.\par
+\b ENTIDAD PRESTAMO\par
+\b0 En la entidad pr\'e9stamo s\'f3lo se dejaron los atributos de fecha de devoluci\'f3n y fecha de pr\'e9stamo debido a que los atributos de socio y libro estaban m\'e1s asociados a sus entidades o mas bien depend\'edan de sus respectivas claves. Es por ello que se separaron en otras tablas, dejando solamente las fechas de prestamo y devolucion de dicha entidad y que dependen de la clave isbn de libro para asociar las fechas y a su vez el rut de socio para la relacion entre id de la persona que solicita libro, el id del libro solicitado y las fechas que usaron el libro. Esto tambi\'e9n siguiendo la 2FN y la eliminaci\'f3n de atributos repetitivos.\par
+\par
+}
